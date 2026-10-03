@@ -4,6 +4,8 @@ from apps.users.models import ProviderProfile
 
 
 class ProviderApprovalSerializer(serializers.ModelSerializer):
+    email = serializers.EmailField(source="user.email", read_only=True)
+    is_active = serializers.BooleanField(source="user.is_active", read_only=True)
     class Meta:
         model = ProviderProfile
         fields = [
@@ -18,6 +20,8 @@ class ProviderApprovalSerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at",
             "user",
+            "email",
+            "is_active",
         ]
         read_only_fields = [
             "id",
@@ -31,4 +35,6 @@ class ProviderApprovalSerializer(serializers.ModelSerializer):
             "created_at",
             "updated_at",
             "user",
+            "email",
+            "is_active",
         ]

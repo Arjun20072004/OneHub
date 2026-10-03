@@ -1,0 +1,174 @@
+.role-layout {
+  width: 100%;
+  min-height: 100vh;
+  background: #f5f1ea;
+  color: #172321;
+}
+
+.role-layout__body {
+  display: flex;
+  min-width: 0;
+  min-height: calc(100vh - 64px);
+}
+
+.role-layout__content {
+  width: 100%;
+  min-width: 0;
+  flex: 1;
+}
+
+/* ================================
+   SIDEBAR
+================================ */
+
+.role-sidebar {
+  flex: 0 0 232px;
+  border-right: 1px solid #dbe5e1;
+  background: #173e35;
+  padding: 22px 13px;
+  color: white;
+}
+
+.role-layout--admin .role-sidebar {
+  background: #162b3a;
+}
+
+/* ================================
+   ADMIN BRAND
+================================ */
+
+.role-sidebar__brand {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 12px;
+  margin: 0 0 22px;
+
+  border: 0;
+  border-radius: 12px;
+
+  background: transparent;
+  color: inherit;
+
+  text-align: left;
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.role-sidebar__brand:hover {
+  background: #ffffff0f;
+}
+
+.role-sidebar__brand:active {
+  transform: scale(0.98);
+}
+
+.role-sidebar__brand-mark {
+  width: 38px;
+  height: 38px;
+
+  flex: 0 0 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    #1f9d68,
+    #148354
+  );
+
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.role-sidebar__brand-text {
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.role-sidebar__brand-text strong {
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.role-sidebar__brand-text small {
+  color: #c5d9e5;
+
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+/* ================================
+   NAVIGATION
+================================ */
+
+.role-sidebar nav {
+  display: grid;
+  gap: 5px;
+}
+
+.role-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 8px;
+  padding: 11px 13px;
+
+  color: #cce0d8;
+
+  font-size: 13px;
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.role-nav-link:hover,
+.role-nav-link--active {
+  background: #ffffff1c;
+  color: white;
+}
+
+.role-layout--admin .role-nav-link {
+  color: #c5d9e5;
+}
+
+.role-layout--admin .role-nav-link:hover,
+.role-layout--admin .role-nav-link--active {
+  background: #ffffff18;
+  color: white;
+}
+
+/* ================================
+   MOBILE / TABLET
+================================ */
+
+@media (max-width: 1023px) {
+  .role-sidebar {
+    display: none;
+  }
+
+  .role-layout__body {
+    min-height: calc(100vh - 58px);
+  }
+}

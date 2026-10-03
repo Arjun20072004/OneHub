@@ -1,0 +1,541 @@
+.assistant-shopping-results {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.assistant-shopping-card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #ffffff;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.assistant-shopping-card:hover {
+  transform: translateY(-1px);
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+.assistant-shopping-card__icon {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: #f1f5f9;
+}
+
+.assistant-shopping-card__content {
+  min-width: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.assistant-shopping-card__content strong {
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.assistant-shopping-card__content small {
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.assistant-shopping-card__content b {
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+.assistant-shopping-card__action {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+/* =========================================================
+   ONEHUB AI ASSISTANT
+   ========================================================= */
+
+.assistant-launcher {
+  position: fixed !important;
+  right: 28px !important;
+  bottom: 28px !important;
+
+  width: 58px !important;
+  height: 58px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  border: none !important;
+  border-radius: 50% !important;
+
+  background: #0f4c3a !important;
+  color: #ffffff !important;
+
+  cursor: pointer !important;
+
+  z-index: 99999 !important;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.18),
+    0 4px 10px rgba(0, 0, 0, 0.10) !important;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+
+.assistant-launcher:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow:
+    0 14px 30px rgba(0, 0, 0, 0.22),
+    0 5px 12px rgba(0, 0, 0, 0.12);
+}
+
+.assistant-launcher:active {
+  transform: scale(0.96);
+}
+
+
+/* =========================================================
+   OPEN PANEL
+   ========================================================= */
+
+.assistant-panel {
+  position: fixed !important;
+  right: 28px !important;
+  bottom: 28px !important;
+
+  width: 390px !important;
+  max-width: calc(100vw - 40px) !important;
+  height: 620px !important;
+  max-height: calc(100vh - 56px) !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+
+  background: #ffffff !important;
+
+  border: 1px solid #dce5df !important;
+  border-radius: 20px !important;
+
+  overflow: hidden !important;
+
+  z-index: 99999 !important;
+
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.18),
+    0 8px 20px rgba(0, 0, 0, 0.08) !important;
+}
+
+
+/* Header */
+
+.assistant-panel__header {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 17px;
+
+  background: #0f4c3a;
+  color: #ffffff;
+}
+
+.assistant-panel__identity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.assistant-avatar {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.assistant-panel__title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.assistant-panel__title strong {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.assistant-panel__title small {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 11px;
+  opacity: 0.82;
+}
+
+.online-dot {
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: #8ce5b0;
+}
+
+.assistant-panel__actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.assistant-panel__actions button {
+  width: 32px;
+  height: 32px;
+
+  display: grid;
+  place-items: center;
+
+  border: none;
+  border-radius: 8px;
+
+  background: transparent;
+  color: #ffffff;
+
+  cursor: pointer;
+}
+
+.assistant-panel__actions button:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+
+/* Messages */
+
+.assistant-messages {
+  flex: 1;
+
+  min-height: 0;
+
+  overflow-y: auto;
+
+  padding: 16px;
+
+  background: #f7f9f7;
+}
+
+.assistant-message {
+  max-width: 88%;
+
+  margin-bottom: 12px;
+
+  padding: 11px 13px;
+
+  border-radius: 14px 14px 14px 4px;
+
+  background: #ffffff;
+
+  border: 1px solid #e4ebe6;
+
+  color: #1b2a24;
+
+  font-size: 13px;
+
+  line-height: 1.5;
+}
+
+.assistant-message p {
+  margin: 0;
+}
+
+.assistant-message--user {
+  margin-left: auto;
+
+  border-radius: 14px 14px 4px 14px;
+
+  background: #e7f2ed;
+
+  border-color: #d2e6dc;
+}
+
+
+/* Action */
+
+.assistant-action {
+  margin-top: 10px;
+
+  display: inline-flex;
+  align-items: center;
+
+  padding: 8px 11px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: #0f4c3a;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* Food cards */
+
+.assistant-food-card {
+  width: 100%;
+
+  margin-top: 9px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding: 10px;
+
+  border: 1px solid #dfe8e2;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.assistant-food-card:hover {
+  border-color: #0f4c3a;
+}
+
+.assistant-food-card > span:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.assistant-food-card strong {
+  font-size: 12px;
+}
+
+.assistant-food-card small {
+  color: #738078;
+  font-size: 10px;
+}
+
+.assistant-food-card > span:last-child {
+  flex-shrink: 0;
+
+  color: #0f4c3a;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+
+/* Suggestions */
+
+.assistant-suggestions {
+  display: grid;
+  gap: 7px;
+
+  margin-top: 10px;
+}
+
+.assistant-suggestions button {
+  padding: 9px 10px;
+
+  border: 1px solid #dfe8e2;
+  border-radius: 9px;
+
+  background: #ffffff;
+
+  text-align: left;
+
+  cursor: pointer;
+}
+
+.assistant-suggestions button strong,
+.assistant-suggestions button small {
+  display: block;
+}
+
+.assistant-suggestions button strong {
+  font-size: 11px;
+}
+
+.assistant-suggestions button small {
+  margin-top: 2px;
+
+  color: #758078;
+  font-size: 10px;
+}
+
+
+/* Typing indicator */
+
+.assistant-typing {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 8px 4px;
+
+  color: #718078;
+}
+
+.assistant-typing span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #0f4c3a;
+}
+
+.assistant-typing small {
+  margin-left: 5px;
+
+  font-size: 10px;
+}
+
+
+/* Starter prompts */
+
+.assistant-prompt-row {
+  display: flex;
+  gap: 7px;
+
+  padding: 10px 12px;
+
+  overflow-x: auto;
+
+  border-top: 1px solid #e7ece9;
+
+  background: #ffffff;
+}
+
+.assistant-prompt-row button {
+  flex-shrink: 0;
+
+  padding: 7px 9px;
+
+  border: 1px solid #d8e3dc;
+  border-radius: 999px;
+
+  background: #f5f8f6;
+
+  color: #315247;
+
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+
+/* Input */
+
+.assistant-input {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 11px 12px;
+
+  border-top: 1px solid #e5ebe7;
+
+  background: #ffffff;
+
+  color: #708078;
+}
+
+.assistant-input input {
+  flex: 1;
+
+  min-width: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #1b2a24;
+
+  font-size: 12px;
+}
+
+.assistant-input input::placeholder {
+  color: #98a29d;
+}
+
+.assistant-input > button {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border: none;
+  border-radius: 9px;
+
+  background: #0f4c3a;
+  color: #ffffff;
+
+  cursor: pointer;
+}
+
+.assistant-input > button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .assistant-launcher {
+    right: 18px !important;
+    bottom: 18px !important;
+
+    width: 54px !important;
+    height: 54px !important;
+  }
+
+  .assistant-panel {
+    right: 12px !important;
+    bottom: 12px !important;
+
+    width: calc(100vw - 24px) !important;
+    height: calc(100vh - 24px) !important;
+  }
+}

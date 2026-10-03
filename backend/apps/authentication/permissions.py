@@ -19,4 +19,4 @@ class HasRole(BasePermission):
 
 
 class IsAdmin(HasRole):
-    required_roles = {"admin", "super_admin"}
+    required_roles = {"admin"}

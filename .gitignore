@@ -6,18 +6,19 @@ __pycache__/
 # Virtual environments
 venv/
 .venv/
+.venv-1/
+env/
 
 # Environment variables
 .env
 .env.*
-cd 
-# Allow example environment files
 !.env.example
 
 # Django
 *.log
 media/
 staticfiles/
+db.sqlite3
 
 # Node
 node_modules/
